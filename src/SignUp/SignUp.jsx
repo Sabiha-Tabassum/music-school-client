@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link} from 'react-router-dom';
+import SocialLogin from '../Components/SocialLogin/SocialLogin';
+
 
 
 
@@ -69,7 +71,7 @@ const SignUp = () => {
                             </div>
                         </form>
                         <p className='mx-8 font-semibold mb-4'>Don't have an Account<Link className='ml-2 text-blue-500' to="/login">Login</Link></p>
-                       
+                       <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>
