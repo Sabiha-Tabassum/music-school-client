@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import SocialLogin from '../Components/SocialLogin/SocialLogin';
 import { Helmet } from 'react-helmet-async';
+import { AuthContext } from '../Providers/AuthProvider/AuthProvider';
 
 
 const Login = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const {signIn} = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const onSubmit = data => {
+        console.log(data);
+
+    } 
    
     return (
         <>

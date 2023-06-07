@@ -1,8 +1,10 @@
-import React from 'react';
+
 import { useForm } from 'react-hook-form';
-import { Link} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import SocialLogin from '../Components/SocialLogin/SocialLogin';
 import { Helmet } from 'react-helmet-async';
+import { useContext } from 'react';
+import { AuthContext } from '../Providers/AuthProvider/AuthProvider';
 
 
 
@@ -12,8 +14,18 @@ import { Helmet } from 'react-helmet-async';
 
 const SignUp = () => {
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
+    const {createUser} = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const onSubmit = data => {
+        console.log(data);
+       
+                   
+        
+    }
+  
+    const password = watch("password", "");
    
     return (
         <>
@@ -39,14 +51,7 @@ const SignUp = () => {
                                 {errors.name && <span className='text-red-600'>Name field is required</span>}
                             </div>
 
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Photo URL</span>
-                                </label>
-                                <input type="text" {...register("PhotoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
-                                {errors.PhotoURL && <span className='text-red-600'>PhotoURL field is required</span>}
-                            </div>
-
+                           
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -61,7 +66,7 @@ const SignUp = () => {
                                 <input type="password" {...register("password", {
                                     required: true, minLength: 6, maxLength: 20,
                                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
-                                })}
+                                })} name="password"
                                     placeholder="password" className="input input-bordered" />
                                 {errors.password?.type === 'required' && <span className='text-red-600'>Password is required</span>}
                                 {errors.password?.type === 'minLength' && <span className='text-red-600'>Password must be 6 characters</span>}
@@ -72,6 +77,23 @@ const SignUp = () => {
                                 </label>
 
                             </div>
+
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Confirm Password</span>
+                                </label>
+                                <input type="password" {...register("confirm_password", { required: true, validate: (value) =>  {
+                                    if(watch("password") != value){
+                                        return 'password does not match'
+
+                                    }
+                                  },
+                                 })} name="confirm_password"  placeholder="confirm password" className="input input-bordered" />
+                                  {errors.confirm_password?.type === 'required' && <span className='text-red-600'>Confirm Password must be required</span>}
+                                  {errors.confirm_password?.type === 'validate' && <span className='text-red-600'>Password does not match</span>}
+                                
+                            </div>
+
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value='Sign Up' />
                             </div>
