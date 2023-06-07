@@ -11,15 +11,44 @@ import { AuthContext } from '../Providers/AuthProvider/AuthProvider';
 
 
 
+const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_token;
 
 const SignUp = () => {
 
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
-    const {createUser} = useContext(AuthContext);
+    const {createUser, updateUserProfile} = useContext(AuthContext);
     const navigate = useNavigate();
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
     const onSubmit = data => {
-        console.log(data);
+       
+        const formData = new FormData();
+        formData.append('image', data.image[0])
+        fetch(img_hosting_url, {
+            method: 'POST',
+            body: formData,
+        }).then(res => res.json())
+        .then(imageData => {
+            const imageUrl = imageData.data.display_url
+            createUser(data.email, data.password)
+            .then(result => {
+                updateUserProfile(data.name, imageUrl)
+                .then(() => {
+                   
+                    navigate('/')
+                })
+                
+            }) 
+
+            .catch(error => {
+                console.log(error.message)
+            })   
+        })
+
+        .catch(error => {
+            console.log(error.message)
+        })   
+        
        
                    
         
@@ -59,6 +88,17 @@ const SignUp = () => {
                                 <input type="text" {...register("email", { required: true })} name='email' placeholder="email" className="input input-bordered" />
                                 {errors.email && <span className='text-red-600'>Email field is required</span>}
                             </div>
+
+
+                             <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">PhotoUrl</span>
+                                </label>
+                                <input type="file" {...register("image", { required: true })}  placeholder="photoURL" className="input input-bordered" />
+                                {errors.image && <span className='text-red-600'>Image field is required</span>}
+                            </div>
+                             
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
