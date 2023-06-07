@@ -1,8 +1,18 @@
-import React from 'react';
-import {  NavLink } from 'react-router-dom';
-import Container from '../Container/Container';
+import React, { useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
+import Avatar from '../../Components/Avatar/Avatar';
+
+
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
 
     const navOptions =
         <>
@@ -29,27 +39,29 @@ const Navbar = () => {
                 </NavLink>
             </div>
 
-            
-               <NavLink
-                    to="/"
-                    className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
-                    }
-                >
-                    Classes
-                </NavLink>
-            
 
-            <div className='mx-4'>
-                <NavLink
-                    to="/"
-                    className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
-                    }
-                >
-                    Dashboard
-                </NavLink>
-            </div>
+            <NavLink
+                to="/"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
+                }
+            >
+                Classes
+            </NavLink>
+
+
+            {
+                user && <div className='mx-4'>
+                    <NavLink
+                        to="/"
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
+                        }
+                    >
+                        Dashboard
+                    </NavLink>
+                </div>
+            }
 
         </>
     return (
@@ -71,8 +83,18 @@ const Navbar = () => {
                         {navOptions}
                     </ul>
                 </div>
+
                 <div className="navbar-end">
-                    <a className="btn">Login</a>
+                    <Avatar></Avatar>
+                    {
+                        user ? <>
+
+                            <button onClick={handleLogOut} className='btn btn-primary '>Log Out</button>
+                        </> :
+                            <>
+                                <button className='btn btn-primary'><Link to="/login">Login</Link></button>
+                            </>
+                    }
                 </div>
             </div>
         </div>

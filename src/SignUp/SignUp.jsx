@@ -5,6 +5,10 @@ import SocialLogin from '../Components/SocialLogin/SocialLogin';
 import { Helmet } from 'react-helmet-async';
 import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProvider/AuthProvider';
+import Lottie from "lottie-react";
+import signUpPic from '../assets/106680-login-and-sign-up.json';
+
+
 
 
 
@@ -68,7 +72,11 @@ const SignUp = () => {
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Sign Up now!</h1>
-                      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <div>
+                            <div>
+                                <Lottie animationData={signUpPic} loop={true} />
+                            </div>
+                    </div>
                 </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
