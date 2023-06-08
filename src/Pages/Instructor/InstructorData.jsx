@@ -1,11 +1,15 @@
 import React from 'react';
+import InstructorAllData from './InstructorAllData';
 
 const InstructorData = ({instructor}) => {
     console.log(instructor);
-    const {name,email,imgURL} = instructor;
+   
     return (
-        <div>
-            
+        <div className='grid grid-cols-3 gap-2'>
+            {
+                instructor.slice(0,6).map(data => <InstructorAllData key={data._id}
+                instructor={data}></InstructorAllData>)
+            }
         </div>
     );
 };
