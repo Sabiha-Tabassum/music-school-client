@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProvider/AuthProvider';
 import Lottie from "lottie-react";
 import signUpPic from '../assets/106680-login-and-sign-up.json';
+import Swal from 'sweetalert2';
 
 
 
@@ -38,8 +39,8 @@ const SignUp = () => {
             .then(result => {
                 updateUserProfile(data.name, imageUrl)
                 .then(() => {
-                    const saveUser = {name: data.name, email: data.email}
-                   fetch('http://localhost:5000/users', {
+                    const saveUser = {name: data.name, email: data.email, imgURL: imageUrl }
+                   fetch('http://localhost:5000/user', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

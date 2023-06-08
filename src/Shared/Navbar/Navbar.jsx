@@ -53,7 +53,7 @@ const Navbar = () => {
             {
                 user && <div className='mx-4'>
                     <NavLink
-                        to="/"
+                        to="/dashboard"
                         className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
                         }
