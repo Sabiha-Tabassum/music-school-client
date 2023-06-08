@@ -2,8 +2,12 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import Navbar from '../Shared/Navbar/Navbar';
 import Footer from '../Shared/Footer/Footer';
+import UseAdmin from '../hooks/UseAdmin/UseAdmin';
 
 const Dashboard = () => {
+
+    const [isAdmin] = UseAdmin();
+   
     return (
         <div>
             <Navbar></Navbar>

@@ -1,15 +1,13 @@
-import { useQuery } from '@tanstack/react-query';
+
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FaUserShield } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import AllUser from '../../hooks/AllUser/AllUser';
 
 const ManageUser = () => {
-    const { data: user = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch('http://localhost:5000/user')
-        return res.json();
-    })
-
+   const [user, refetch] = AllUser();
+   
     const handleMakeAdmin = user => {
         fetch(`http://localhost:5000/user/admin/${user._id}`,{
             method: 'PATCH'
@@ -66,7 +64,7 @@ const ManageUser = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th>Action</th>
+                            <th>Role</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -76,11 +74,11 @@ const ManageUser = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role === 'Admin' ? 'Admin' :
-                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-lg"><FaUserShield></FaUserShield></button>}
+                                    <button disabled={user.role === 'Instructor'} onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-lg"><FaUserShield></FaUserShield></button>}
                                 </td>
 
                                 <td>{user.role === 'Instructor' ? 'Instructor' :
-                                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-lg"><FaUserShield></FaUserShield></button>}
+                                    <button disabled={user.role === 'Admin'} onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-lg"><FaUserShield></FaUserShield></button>}
                                 </td>
 
                                

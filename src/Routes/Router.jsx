@@ -12,6 +12,7 @@ import Main from "../Layout/Main";
 
 import Dashboard from "../Layout/Dashboard";
 import ManageUser from "../DashboardPages/ManageUser/ManageUser";
+import Instructor from "../Pages/Instructor/Instructor";
 
 
 
@@ -33,6 +34,11 @@ export const router = createBrowserRouter([
       {
         path: 'login',
         element: <Login></Login>
+      },
+
+      {
+        path: 'instructor',
+        element: <Instructor></Instructor>
       }
 
       
