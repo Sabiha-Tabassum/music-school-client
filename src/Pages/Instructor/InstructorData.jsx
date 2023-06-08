@@ -7,7 +7,7 @@ const InstructorData = ({instructor}) => {
     return (
         <div className='grid grid-cols-3 gap-2'>
             {
-                instructor.slice(0,6).map(data => <InstructorAllData key={data._id}
+                instructor.map(data => <InstructorAllData key={data._id}
                 instructor={data}></InstructorAllData>)
             }
         </div>
