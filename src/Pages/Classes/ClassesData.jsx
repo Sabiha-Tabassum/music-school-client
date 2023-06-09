@@ -1,11 +1,68 @@
 import React from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
+import AddByTeacher from '../../hooks/AddByTeacher/AddByTeacher';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const ClassesData = ({allClass}) => {
 
-   
+    const { _id, image, class_name, name, price, seats} = allClass;
+    const {user} = useContext(AuthContext);
+    const [, refetch] = AddByTeacher();
+    const navigate = useNavigate();
+    const location = useLocation();
+    
 
-    const {image,class_name,name,price,seats} = allClass;
+
+
+    const handleSelectClass = allClass => {
+
+        console.log(allClass);
+
+        if(user && user.email){
+         const selectClass = {classId: _id, name, class_name, image, price, seats, email: user.email }
+         fetch('http://localhost:5000/myclass', {
+             method: 'POST',
+             headers: {
+                 'content-type': 'application/json'
+             },
+             body: JSON.stringify(selectClass)
+         })
+         .then(res => res.json())
+         .then(data => {
+             if(data.insertedId){
+                 refetch();
+                 Swal.fire({
+                     position: 'top-end',
+                     icon: 'success',
+                     title: 'This class is selected by you',
+                     showConfirmButton: false,
+                     timer: 1500
+                   })
+             }
+         })
+        }
+
+       else{
+         Swal.fire({
+             title: 'Please login before select the class',
+           
+             icon: 'warning',
+             showCancelButton: true,
+             confirmButtonColor: '#3085d6',
+             cancelButtonColor: '#d33',
+             confirmButtonText: 'LogIn now'
+           }).then((result) => {
+             if (result.isConfirmed) {
+                navigate('/login', {state: {from: location}})
+             }
+           })
+       }
+ }
+
+
     return (
         <div className="card w-80 h-96 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
@@ -19,7 +76,7 @@ const ClassesData = ({allClass}) => {
                 <p className='font-semibold'>Available Seats: {seats}</p>
                 
             </div>
-            <button>Select</button>
+            <button onClick={() =>  handleSelectClass(allClass)} className=''>Select</button>
         </div>
     );
 };
