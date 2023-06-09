@@ -2,11 +2,13 @@ import React from 'react';
 import AddByTeacher from '../../hooks/AddByTeacher/AddByTeacher';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
+import MyClassHook from '../../hooks/MyClassHook/MyClassHook';
 
 
 const InstructorClass = () => {
     const {user} = useContext(AuthContext);
     const [classes] = AddByTeacher();
+    const [myClasses] = MyClassHook();
     console.log(classes);
 
     const instructorClasses = classes.filter(instructorClass => instructorClass.email === user?.email)
@@ -27,6 +29,7 @@ const InstructorClass = () => {
                             
                             <th>Price</th>
                             <th>Available Seats</th>
+                            <th>Total Enrolled</th>
                             <th>Status by Admin</th>
                             
                             <th>Feedback by Admin</th>
@@ -54,6 +57,7 @@ const InstructorClass = () => {
                                 <td>{classes.email}</td>
                                 <td>{classes.price}</td>
                                 <td>{classes.seats}</td>
+                                <td>{myClasses?.length || 0}</td>
                                 <td>{classes.status}</td>
                                 <td>{classes.feedback}</td>
                                 
