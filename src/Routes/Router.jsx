@@ -16,6 +16,7 @@ import Instructor from "../Pages/Instructor/Instructor";
 import AddClass from "../DashboardPages/AddClass/AddClass";
 import PrivateRouter from "../Providers/PrivateRouter/PrivateRouter";
 import UpdateClassByAdmin from "../DashboardPages/UpdateClassByAdmin/UpdateClassByAdmin";
+import InstructorClass from "../DashboardPages/InstructorClass/InstructorClass";
 
 
 
@@ -71,6 +72,11 @@ export const router = createBrowserRouter([
       {
         path: 'updateclassbyadmin',
         element: <UpdateClassByAdmin></UpdateClassByAdmin>
+      },
+
+      {
+        path: 'instructorclasses',
+        element: <InstructorClass></InstructorClass>
       }
     ]
 

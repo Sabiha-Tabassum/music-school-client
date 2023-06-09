@@ -39,6 +39,8 @@ const Dashboard = () => {
                           <li><Link to='/dashboard/addclass'>Add Class </Link></li>
 
                           <li><Link to='/dashboard/updateclassbyadmin'>Update Class By Admin </Link></li>
+
+                          <li><Link to='/dashboard/instructorclasses'>Instructor Class  </Link></li>
                         
                         
                        

@@ -48,6 +48,47 @@ const UpdateClassByAdmin = () => {
         })
     }
 
+    const handleDenyFeedback = classes => {
+        fetch(`http://localhost:5000/class/denyFeedback/${classes._id}`,{
+            method: 'PATCH'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.modifiedCount){
+                refetch();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Feedback done',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
+    }
+
+
+    const handleApproveFeedback = classes => {
+        fetch(`http://localhost:5000/class/approveFeedback/${classes._id}`,{
+            method: 'PATCH'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.modifiedCount){
+                refetch();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Feedback done ',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
+    }
+
 
     return (
         <div>
@@ -72,7 +113,7 @@ const UpdateClassByAdmin = () => {
                             <th>Available Seats</th>
                             <th>Approve</th>
                             <th>Deny</th>
-                            <th>Feedback</th>
+                            <th>Send Feedback</th>
 
                         </tr>
                     </thead>
@@ -107,7 +148,7 @@ const UpdateClassByAdmin = () => {
                                     <button disabled={classes.status === 'Approved'} onClick={() => handleMakeDeny(classes)} className="btn btn-ghost btn-sm">Pending</button>}
                                 </td>
                                 <td>
-                                    { classes.status === 'Denied' ? <p>This class is not opening yet</p> : ''}
+                                    { classes.status === 'Denied' ? <button onClick={() => handleDenyFeedback(classes)}  >This class is not opening yet</button> : '' || classes.status === 'Approved' ? <button onClick={() => handleApproveFeedback(classes)}  >This class is going on successfully</button> : ''}
                                 </td>
 
 
