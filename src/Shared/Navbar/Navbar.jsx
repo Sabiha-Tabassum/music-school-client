@@ -21,7 +21,7 @@ const Navbar = () => {
                     to="/"
 
                     className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
+                        isPending ? "pending" : isActive ? "text-indigo-400 hover:bg-indigo-200 font-semibold" : ""
                     }
                 >
                     Home
@@ -32,7 +32,7 @@ const Navbar = () => {
                 <NavLink
                     to="/instructor"
                     className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
+                        isPending ? "pending" : isActive ? " text-indigo-400 hover:bg-indigo-200 font-semibold" : ""
                     }
                 >
                     Instructors
@@ -43,7 +43,7 @@ const Navbar = () => {
             <NavLink
                 to="/classes"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
+                    isPending ? "pending" : isActive ? "text-indigo-400 hover:bg-indigo-200 font-semibold" : ""
                 }
             >
                 Classes
@@ -57,7 +57,7 @@ const Navbar = () => {
                     <NavLink
                         to="/dashboard"
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
+                            isPending ? "pending" : isActive ? "text-indigo-400 hover:bg-indigo-200 font-semibold" : ""
                         }
                     >
                         Dashboard
@@ -69,7 +69,7 @@ const Navbar = () => {
         </>
     return (
         <div>
-            <div className="navbar  ">
+            <div className="navbar bg-slate-100 ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -79,7 +79,7 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl"></a>
+                    <Link to='/' className="btn btn-ghost normal-case text-xl">Life Tune</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

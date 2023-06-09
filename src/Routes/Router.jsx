@@ -20,11 +20,7 @@ import InstructorClass from "../DashboardPages/InstructorClass/InstructorClass";
 import Classes from "../Pages/Classes/Classes";
 import MyClass from "../DashboardPages/MyClass/MyClass";
 import EnrollClass from "../DashboardPages/EnrollClass/EnrollClass";
-
-
-
-
-
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 
@@ -33,6 +29,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
