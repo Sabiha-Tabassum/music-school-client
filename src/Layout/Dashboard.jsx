@@ -16,7 +16,7 @@ const Dashboard = () => {
    
     return (
         <div>
-            <Navbar></Navbar>
+           <Navbar></Navbar>
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
@@ -41,6 +41,11 @@ const Dashboard = () => {
                           <li><Link to='/dashboard/updateclassbyadmin'>Update Class By Admin </Link></li>
 
                           <li><Link to='/dashboard/instructorclasses'>Instructor Class  </Link></li>
+
+
+                          <li><Link to='/dashboard/myclass'>My Selected Class </Link></li>
+
+                          <li><Link to='/dashboard/enrolledclass'>My Enrolled Class </Link></li>
                         
                         
                        

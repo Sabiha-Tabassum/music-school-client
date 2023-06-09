@@ -17,6 +17,9 @@ import AddClass from "../DashboardPages/AddClass/AddClass";
 import PrivateRouter from "../Providers/PrivateRouter/PrivateRouter";
 import UpdateClassByAdmin from "../DashboardPages/UpdateClassByAdmin/UpdateClassByAdmin";
 import InstructorClass from "../DashboardPages/InstructorClass/InstructorClass";
+import Classes from "../Pages/Classes/Classes";
+import MyClass from "../DashboardPages/MyClass/MyClass";
+import EnrollClass from "../DashboardPages/EnrollClass/EnrollClass";
 
 
 
@@ -49,6 +52,11 @@ export const router = createBrowserRouter([
       {
         path: 'instructor',
         element: <Instructor></Instructor>
+      },
+
+      {
+        path: 'classes',
+        element: <Classes></Classes>
       }
 
       
@@ -77,7 +85,18 @@ export const router = createBrowserRouter([
       {
         path: 'instructorclasses',
         element: <InstructorClass></InstructorClass>
+      },
+
+      {
+        path: 'myclass',
+        element: <MyClass></MyClass>
+      },
+
+      {
+        path: 'enrolledclass',
+        element: <EnrollClass></EnrollClass>
       }
+
     ]
 
   }

@@ -27,9 +27,9 @@ const InstructorClass = () => {
                             
                             <th>Price</th>
                             <th>Available Seats</th>
-                            <th>Status</th>
+                            <th>Status by Admin</th>
                             
-                            <th>Feedback</th>
+                            <th>Feedback by Admin</th>
 
                         </tr>
                     </thead>
@@ -55,6 +55,7 @@ const InstructorClass = () => {
                                 <td>{classes.price}</td>
                                 <td>{classes.seats}</td>
                                 <td>{classes.status}</td>
+                                <td>{classes.feedback}</td>
                                 
                                 
                                 

@@ -3,12 +3,13 @@ import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
 import UseInstructor from '../../hooks/UseInstructor/UseInstructor';
+import { Link } from 'react-router-dom';
 
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_token;
 
 const AddClass = () => {
     const { user } = useContext(AuthContext);
-    
+
     const { register, handleSubmit, reset } = useForm();
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
     const onSubmit = data => {
@@ -31,22 +32,22 @@ const AddClass = () => {
                             'content-type': 'application/json'
                         },
                         body: JSON.stringify(newClass)
-                       })
-                    
-                       .then(data => {
-                        reset();
-                         if(data.insertedId){
-                             Swal.fire({
-                                 position: 'top-end',
-                                 icon: 'success',
-                                 title: 'Class added successfully',
-                                 showConfirmButton: false,
-                                 timer: 1500
-                               })
-                          }
+                    })
 
-                        })  
-                   
+                        .then(data => {
+                            reset();
+                            if (data.insertedId) {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'Class added successfully',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                            }
+
+                        })
+
                 }
             })
     }
@@ -114,8 +115,10 @@ const AddClass = () => {
                     </label>
                     <input {...register("status", { required: true })} type="text" value="Pending" className="file-input file-input-bordered w-full " />
                 </div>
-                <input className='btn btn-sm mt-2' type="submit" value="Add Class" />
-
+                 
+                   <input  type="submit" className='btn btn-sm mt-2' value="Add Class" />
+                   
+                  
             </form>
         </div>
     );

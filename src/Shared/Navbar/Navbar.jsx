@@ -41,7 +41,7 @@ const Navbar = () => {
 
 
             <NavLink
-                to="/"
+                to="/classes"
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
                 }
