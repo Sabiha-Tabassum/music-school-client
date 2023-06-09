@@ -13,6 +13,15 @@ import Main from "../Layout/Main";
 import Dashboard from "../Layout/Dashboard";
 import ManageUser from "../DashboardPages/ManageUser/ManageUser";
 import Instructor from "../Pages/Instructor/Instructor";
+import AddClass from "../DashboardPages/AddClass/AddClass";
+import PrivateRouter from "../Providers/PrivateRouter/PrivateRouter";
+import UpdateClassByAdmin from "../DashboardPages/UpdateClassByAdmin/UpdateClassByAdmin";
+
+
+
+
+
+
 
 
 
@@ -47,11 +56,21 @@ export const router = createBrowserRouter([
 
   {
     path: 'dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRouter><Dashboard></Dashboard></PrivateRouter>,
     children: [
       {
             path: 'manageuser',
             element: <ManageUser></ManageUser>
+      },
+
+      {
+        path: 'addclass',
+        element: <AddClass></AddClass>
+      },
+
+      {
+        path: 'updateclassbyadmin',
+        element: <UpdateClassByAdmin></UpdateClassByAdmin>
       }
     ]
 

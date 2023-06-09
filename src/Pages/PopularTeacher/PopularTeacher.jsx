@@ -12,7 +12,7 @@ const PopularTeacher = () => {
 
     return (
         <Container>
-            <div className='grid grid-cols-3'>
+            <div className='grid md:grid-cols-3'>
                 {role.slice(0,6).map(img => <PopularTeacherImg
                     key={img._id}
                     img={img}></PopularTeacherImg>)}

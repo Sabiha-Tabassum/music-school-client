@@ -50,8 +50,10 @@ const Navbar = () => {
             </NavLink>
 
 
+
             {
-                user && <div className='mx-4'>
+                user && 
+                   <div className='mx-4'>
                     <NavLink
                         to="/dashboard"
                         className={({ isActive, isPending }) =>
@@ -60,8 +62,9 @@ const Navbar = () => {
                     >
                         Dashboard
                     </NavLink>
-                </div>
+                  </div>
             }
+
 
         </>
     return (
