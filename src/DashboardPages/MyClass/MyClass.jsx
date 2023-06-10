@@ -3,15 +3,48 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
 import MyClassHook from '../../hooks/MyClassHook/MyClassHook';
 import {  FaTrash } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const MyClass = () => {
+   
     const { user } = useContext(AuthContext);
-    const [myClasses] = MyClassHook();
+    const [myClasses, refetch] = MyClassHook();
     // console.log(myClasses)
     const studentClasses = myClasses.filter(studentClass => studentClass.email === user?.email)
 
+
+    const handleDelete = (classes) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+             fetch(`http://localhost:5000/myclass/${classes._id}`, {
+                method: 'DELETE'
+             })
+             .then(res => res.json())
+             .then(data => {
+                if(data.deletedCount > 0){
+                    refetch();
+                    Swal.fire(
+                        'Deleted!',
+                        'Your selected class has been deleted.',
+                        'success'
+                      )
+                }
+             })
+            }
+          })
+    }
+
     return (
         <div>
+            
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}
@@ -21,7 +54,7 @@ const MyClass = () => {
                             <th>Class Image</th>
                             <th>Class Name</th>
                             <th>Instructor Name</th>
-                            <th>Email</th>
+                            <th>My EmailId</th>
                            
 
 
@@ -53,7 +86,7 @@ const MyClass = () => {
                                 <td>{classes.email}</td>
                                 <td>{classes.price}</td>
                                 <td>{classes.seats}</td>
-                                <td><button> <FaTrash></FaTrash> </button></td>
+                                <td><button onClick={() => handleDelete(classes)}> <FaTrash></FaTrash> </button></td>
                                 <td><button>Pay</button></td>
 
 

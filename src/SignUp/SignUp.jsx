@@ -170,10 +170,10 @@ const SignUp = () => {
                             </div>
 
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value='Sign Up' />
+                                <input className="btn hover:bg-indigo-400" type="submit" value='Sign Up' />
                             </div>
                         </form>
-                        <p className='mx-8 font-semibold mb-4'>Don't have an Account<Link className='ml-2 text-blue-500' to="/login">Login</Link></p>
+                        <p className='mx-8 font-semibold mb-4'>Already have an Account<Link className='ml-2 text-indigo-500 hover:bg-indigo-300 p-2 rounded-lg' to="/login">Login</Link></p>
                        <SocialLogin></SocialLogin>
                     </div>
                 </div>

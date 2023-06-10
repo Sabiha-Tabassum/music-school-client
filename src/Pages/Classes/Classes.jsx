@@ -2,6 +2,8 @@ import React from 'react';
 import AddByTeacher from '../../hooks/AddByTeacher/AddByTeacher';
 import ClassesData from './ClassesData';
 
+
+
 const Classes = () => {
     const [classes] = AddByTeacher();
     const allClasses = classes.filter(allClass => allClass.status === 'Approved');
@@ -13,6 +15,10 @@ const Classes = () => {
                key={classes._id}
                allClass={classes}></ClassesData>) 
             }
+
+            
+
+           
         </div>
     );
 };

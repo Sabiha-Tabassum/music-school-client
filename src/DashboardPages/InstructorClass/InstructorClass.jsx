@@ -3,18 +3,60 @@ import AddByTeacher from '../../hooks/AddByTeacher/AddByTeacher';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
 import MyClassHook from '../../hooks/MyClassHook/MyClassHook';
+import Swal from 'sweetalert2';
 
 
 const InstructorClass = () => {
+
+
     const {user} = useContext(AuthContext);
     const [classes] = AddByTeacher();
     const [myClasses] = MyClassHook();
-    console.log(classes);
+    console.log(myClasses);
 
     const instructorClasses = classes.filter(instructorClass => instructorClass.email === user?.email)
     console.log(instructorClasses);
+
+
+    // const handleEnrollClass = (myClasses) => {
+
+    //     console.log(myClasses);
+       
+        
+    //      const enrollClass = {Total_Student: myClasses.length }
+    //      console.log(enrollClass)
+    //      fetch('http://localhost:5000/totalenroll', {
+    //          method: 'POST',
+    //          headers: {
+    //              'content-type': 'application/json'
+    //          },
+    //          body: JSON.stringify(enrollClass)
+    //      })
+    //      .then(res => res.json())
+    //      .then(data => {
+    //          if(data.insertedId){
+                 
+    //              Swal.fire({
+    //                  position: 'top-end',
+    //                  icon: 'success',
+    //                  title: 'enroll student',
+    //                  showConfirmButton: false,
+    //                  timer: 1500
+    //                })
+    //          }
+    //      })
+    //     }
+
+
+
+
     return(
         <div>
+
+              <div>
+                <h1>Total Enrolled Student: {myClasses.length || 0}</h1>
+              </div>
+             
                <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}
@@ -29,7 +71,7 @@ const InstructorClass = () => {
                             
                             <th>Price</th>
                             <th>Available Seats</th>
-                            <th>Total Enrolled</th>
+                           
                             <th>Status by Admin</th>
                             
                             <th>Feedback by Admin</th>
@@ -57,9 +99,11 @@ const InstructorClass = () => {
                                 <td>{classes.email}</td>
                                 <td>{classes.price}</td>
                                 <td>{classes.seats}</td>
-                                <td>{myClasses?.length || 0}</td>
+                                
                                 <td>{classes.status}</td>
                                 <td>{classes.feedback}</td>
+                                
+                               
                                 
                                 
                                 

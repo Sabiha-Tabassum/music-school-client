@@ -6,13 +6,16 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 
+
 const ClassesData = ({allClass}) => {
 
     const { _id, image, class_name, name, price, seats} = allClass;
+
     const {user} = useContext(AuthContext);
     const [, refetch] = AddByTeacher();
     const navigate = useNavigate();
     const location = useLocation();
+    
     
 
 
@@ -23,6 +26,7 @@ const ClassesData = ({allClass}) => {
 
         if(user && user.email){
          const selectClass = {classId: _id, name, class_name, image, price, seats, email: user.email }
+         console.log(selectClass)
          fetch('http://localhost:5000/myclass', {
              method: 'POST',
              headers: {
