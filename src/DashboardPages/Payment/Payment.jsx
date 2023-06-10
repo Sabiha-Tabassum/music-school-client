@@ -10,6 +10,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
 const Payment = () => {
     const paymentData = useLoaderData();
+    console.log(paymentData)
    
     return (
         <div>
