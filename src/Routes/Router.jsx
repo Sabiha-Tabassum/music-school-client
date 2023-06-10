@@ -22,6 +22,8 @@ import MyClass from "../DashboardPages/MyClass/MyClass";
 import EnrollClass from "../DashboardPages/EnrollClass/EnrollClass";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
+import Payment from "../DashboardPages/Payment/Payment";
+
 
 
 
@@ -92,7 +94,16 @@ export const router = createBrowserRouter([
       {
         path: 'enrolledclass',
         element: <EnrollClass></EnrollClass>
-      }
+      },
+
+      {
+        path: 'payment/:id',
+        element: <Payment></Payment>,
+        loader: ({params}) => fetch(`http://localhost:5000/myclass/${params.id}`)
+      },
+
+     
+
 
     ]
 

@@ -4,6 +4,7 @@ import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
 import MyClassHook from '../../hooks/MyClassHook/MyClassHook';
 import {  FaTrash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const MyClass = () => {
    
@@ -87,7 +88,7 @@ const MyClass = () => {
                                 <td>{classes.price}</td>
                                 <td>{classes.seats}</td>
                                 <td><button onClick={() => handleDelete(classes)}> <FaTrash></FaTrash> </button></td>
-                                <td><button>Pay</button></td>
+                               <Link to={`/dashboard/payment/${classes._id}`}> <td><button>Pay</button></td></Link>
 
 
 
