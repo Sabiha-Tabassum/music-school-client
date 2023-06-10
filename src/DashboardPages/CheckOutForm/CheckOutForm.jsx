@@ -15,6 +15,8 @@ const CheckOutForm = ({price}) => {
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [axiosSecure] = UseAxiosSecure();
+    const [processing, setProcessing] = useState(false);
+    const [transactionId, setTransactionId] = useState('');
 
     // useEffect(() => {
     //     // Create PaymentIntent as soon as the page loads
@@ -63,6 +65,8 @@ const CheckOutForm = ({price}) => {
             console.log('payment method', paymentMethod)
         }
 
+        setProcessing(true);
+
         const { paymentIntent, error:confirmError} = await stripe.confirmCardPayment(
             clientSecret,
              {
@@ -83,8 +87,11 @@ const CheckOutForm = ({price}) => {
            }
           
           console.log('payment intent', paymentIntent);
+          setProcessing(false);
           if(paymentIntent.status === 'succeeded'){
-             const transectionId = paymentIntent.id;
+            setTransactionId( paymentIntent.id)
+             const payment = {email: user?.email, transactionId: paymentIntent.id, price} 
+
           }
             
 
@@ -110,7 +117,7 @@ const CheckOutForm = ({price}) => {
                         },
                     }}
                 />
-                <button className='btn btn-outline btn-primary btn-sm mt-4' type="submit" disabled={!stripe }>
+                <button className='btn btn-outline btn-primary btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret || processing }>
                     Pay
                 </button>
 
@@ -118,6 +125,7 @@ const CheckOutForm = ({price}) => {
             </form>
 
             {cardError && <p className='text-red-500'>{cardError}</p>}
+            {transactionId && <p className='text-green-500'>Transaction complete with transaction id: {transactionId}</p>}
         </>
 
 
