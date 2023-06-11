@@ -5,8 +5,10 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
 import UseAxiosSecure from '../../hooks/UseAxiosSecure/UseAxiosSecure';
+import Swal from 'sweetalert2';
+import './CheckOutForm.css';
 
-const CheckOutForm = ({price}) => {
+const CheckOutForm = ({price, className, instructorName, image, seats,  myClasses}) => {
     // console.log(price)
    
     const {user} = useContext(AuthContext);
@@ -18,24 +20,16 @@ const CheckOutForm = ({price}) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
 
-    // useEffect(() => {
-    //     // Create PaymentIntent as soon as the page loads
-    //     fetch("/create-payment-intent", {
-    //       method: "POST",
-    //       headers: { "Content-Type": "application/json" },
-    //       body: JSON.stringify({ price }),
-    //     })
-    //       .then((res) => res.json())
-    //       .then((data) => setClientSecret(data.clientSecret));
-    //   }, []);
-
+   
 
     useEffect(() => {
-        console.log(price)
-       axiosSecure.post('/create-payment-intent', { price })
-            .then(res => {
-               setClientSecret(res.data.clientSecret)
-            })
+       if(price > 0){
+        axiosSecure.post('/create-payment-intent', { price })
+        .then(res => {
+           setClientSecret(res.data.clientSecret)
+        })
+       }
+           
 
     }, [price])
 
@@ -90,7 +84,21 @@ const CheckOutForm = ({price}) => {
           setProcessing(false);
           if(paymentIntent.status === 'succeeded'){
             setTransactionId( paymentIntent.id)
-             const payment = {email: user?.email, transactionId: paymentIntent.id, price} 
+             const payment = {email: user?.email, transactionId: paymentIntent.id, date: new Date(), price, className, image, instructorName, 
+            mySelectedClass: myClasses.map(myClass => myClass._id) } 
+             axiosSecure.post('/payment', payment)
+             .then(res => {
+                // console.log(res.data);
+                if(res.data.result){
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'payment confirmed',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
+             })
 
           }
             

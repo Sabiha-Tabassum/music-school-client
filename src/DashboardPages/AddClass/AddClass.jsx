@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
-import UseInstructor from '../../hooks/UseInstructor/UseInstructor';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_token;
 
 const AddClass = () => {
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const { register, handleSubmit, reset } = useForm();
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
@@ -24,7 +25,7 @@ const AddClass = () => {
             .then(imgResponse => {
                 if (imgResponse.success) {
                     const imgURL = imgResponse.data.display_url;
-                    const { name, price, seats, class_name, status } = data;
+                    const {  price, seats, class_name, status } = data;
                     const newClass = { name: user?.displayName, email: user?.email, price: parseFloat(price), seats: parseFloat(seats), class_name, status, image: imgURL }
                     fetch('http://localhost:5000/class', {
                         method: 'POST',
@@ -44,6 +45,7 @@ const AddClass = () => {
                                     showConfirmButton: false,
                                     timer: 1500
                                 })
+                                navigate('/dashboard/instructorclasses')
                             }
 
                         })
