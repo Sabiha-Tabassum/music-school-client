@@ -53,9 +53,7 @@ const InstructorClass = () => {
     return(
         <div>
 
-              <div>
-                <h1>Total Enrolled Student: {myClasses.length || 0}</h1>
-              </div>
+              
              
                <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
