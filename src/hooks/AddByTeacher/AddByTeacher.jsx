@@ -3,7 +3,7 @@ import React from 'react';
 
 const AddByTeacher = () => {
     const { data: classes = [], refetch } = useQuery(['class'], async () => {
-        const res = await fetch('http://localhost:5000/class/')
+        const res = await fetch('https://music-school-server-sabiha-tabassum.vercel.app/class/')
         return res.json();
     })
 

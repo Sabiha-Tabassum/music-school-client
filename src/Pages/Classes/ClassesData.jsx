@@ -31,7 +31,7 @@ const ClassesData = ({allClass}) => {
         if(user && user.email){
          const selectClass = {classId: _id, name, class_name, image, price, seats, email: user.email }
          console.log(selectClass)
-         fetch('http://localhost:5000/myclass', {
+         fetch('https://music-school-server-sabiha-tabassum.vercel.app/myclass', {
              method: 'POST',
              headers: {
                  'content-type': 'application/json'

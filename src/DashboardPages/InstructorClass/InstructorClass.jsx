@@ -26,7 +26,7 @@ const InstructorClass = () => {
         
     //      const enrollClass = {Total_Student: myClasses.length }
     //      console.log(enrollClass)
-    //      fetch('http://localhost:5000/totalenroll', {
+    //      fetch('https://music-school-server-sabiha-tabassum.vercel.app/totalenroll', {
     //          method: 'POST',
     //          headers: {
     //              'content-type': 'application/json'

@@ -9,7 +9,7 @@ const UseInstructor = () => {
     const { data: isInstructor, isLoading: isInstructorLoading } = useQuery({
         queryKey: ['isInstructor', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/user/instructor/${user?.email}`);
+            const res = await fetch(`https://music-school-server-sabiha-tabassum.vercel.app/user/instructor/${user?.email}`);
             console.log('is instructor response', res);
             return res.json();
         }

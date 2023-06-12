@@ -40,7 +40,7 @@ const SignUp = () => {
                 updateUserProfile(data.name, imageUrl)
                 .then(() => {
                     const saveUser = {name: data.name, email: data.email, imgURL: imageUrl }
-                   fetch('http://localhost:5000/user', {
+                   fetch('https://music-school-server-sabiha-tabassum.vercel.app/user', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

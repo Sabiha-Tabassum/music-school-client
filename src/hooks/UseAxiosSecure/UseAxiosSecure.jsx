@@ -8,7 +8,7 @@ const UseAxiosSecure = () => {
     const navigate = useNavigate();
 
     const axiosSecure = axios.create({
-        baseURL: 'http://localhost:5000',
+        baseURL: 'https://music-school-server-sabiha-tabassum.vercel.app',
     });
 
 

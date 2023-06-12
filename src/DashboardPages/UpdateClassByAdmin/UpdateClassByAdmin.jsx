@@ -9,7 +9,7 @@ const UpdateClassByAdmin = () => {
 
 
     const handleMakeApprove = classes => {
-        fetch(`http://localhost:5000/class/approve/${classes._id}`,{
+        fetch(`https://music-school-server-sabiha-tabassum.vercel.app/class/approve/${classes._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -29,7 +29,7 @@ const UpdateClassByAdmin = () => {
     }
 
     const handleMakeDeny = classes => {
-        fetch(`http://localhost:5000/class/deny/${classes._id}`,{
+        fetch(`https://music-school-server-sabiha-tabassum.vercel.app/class/deny/${classes._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -49,7 +49,7 @@ const UpdateClassByAdmin = () => {
     }
 
     const handleDenyFeedback = classes => {
-        fetch(`http://localhost:5000/class/denyFeedback/${classes._id}`,{
+        fetch(`https://music-school-server-sabiha-tabassum.vercel.app/class/denyFeedback/${classes._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -70,7 +70,7 @@ const UpdateClassByAdmin = () => {
 
 
     const handleApproveFeedback = classes => {
-        fetch(`http://localhost:5000/class/approveFeedback/${classes._id}`,{
+        fetch(`https://music-school-server-sabiha-tabassum.vercel.app/class/approveFeedback/${classes._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())

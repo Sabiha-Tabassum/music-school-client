@@ -3,7 +3,7 @@ import React from 'react';
 
 const MyEnrollClass = () => {
     const { data: myEnrollClass = [], refetch } = useQuery(['payment'], async () => {
-        const res = await fetch('http://localhost:5000/payment/')
+        const res = await fetch('https://music-school-server-sabiha-tabassum.vercel.app/payment/')
         return res.json();
     })
 

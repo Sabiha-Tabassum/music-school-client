@@ -9,7 +9,7 @@ const ManageUser = () => {
    const [user, refetch] = AllUser();
    
     const handleMakeAdmin = user => {
-        fetch(`http://localhost:5000/user/admin/${user._id}`,{
+        fetch(`https://music-school-server-sabiha-tabassum.vercel.app/user/admin/${user._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -29,7 +29,7 @@ const ManageUser = () => {
     }
 
     const handleMakeInstructor = user => {
-        fetch(`http://localhost:5000/user/instructor/${user._id}`,{
+        fetch(`https://music-school-server-sabiha-tabassum.vercel.app/user/instructor/${user._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())

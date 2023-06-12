@@ -28,7 +28,7 @@ const AddClass = () => {
                     const imgURL = imgResponse.data.display_url;
                     const { price, seats, class_name, status } = data;
                     const newClass = { name: user?.displayName, email: user?.email, price: parseFloat(price), seats: parseFloat(seats), class_name, status, image: imgURL }
-                    fetch('http://localhost:5000/class', {
+                    fetch('https://music-school-server-sabiha-tabassum.vercel.app/class', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

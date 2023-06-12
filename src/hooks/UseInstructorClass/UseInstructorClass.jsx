@@ -9,7 +9,7 @@ const UseInstructorClass = () => {
     const { data: classes = [], refetch, isLoading } = useQuery({
         queryKey: ['class', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/class?email${user?.email}`);
+            const res = await fetch(`https://music-school-server-sabiha-tabassum.vercel.app/class?email${user?.email}`);
             
             return res.json();
         }
