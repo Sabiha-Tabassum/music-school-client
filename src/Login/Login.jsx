@@ -7,13 +7,20 @@ import { AuthContext } from '../Providers/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import Lottie from "lottie-react";
 import loginPic from '../assets/111594-login.json';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useState } from 'react';
 
 const Login = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { signIn } = useContext(AuthContext);
+    const [passwordEye, setPasswordEye] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
 
+
+    const handlePasswordEye = () => {
+        setPasswordEye(!passwordEye)
+    }
 
     const from = location.state?.from?.pathname || '/';
 
@@ -71,15 +78,22 @@ const Login = () => {
                                 <input type="text" {...register("email", { required: true })} name='email' placeholder="email" className="input input-bordered" />
 
                             </div>
-                            <div className="form-control">
+                            <div className="form-control relative">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" {...register("password", {
+                                <input type={(passwordEye === false) ? "password" : "text"} {...register("password", {
                                     required: true
                                 })}
                                     placeholder="password" className="input input-bordered" />
-
+                                
+                                <div className='absolute top-16 right-2'>
+                                    {
+                                        (passwordEye === false) ? <FaEyeSlash className='cursor-pointer' onClick={ handlePasswordEye}></FaEyeSlash> :  <FaEye className='cursor-pointer' onClick={ handlePasswordEye}></FaEye>
+                                    }
+                                   
+                                    
+                                </div>
 
 
 
