@@ -8,7 +8,7 @@ const PopularClassData = ({popularClass}) => {
         <div>
            
             <div>
-                <img className='h-40 rounded-lg' src={image} alt="" />
+                <img className='h-40 rounded-lg mt-1' src={image} alt="" />
             </div>
         </div>
     );

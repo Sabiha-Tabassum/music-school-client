@@ -11,7 +11,7 @@ const PopularClass = () => {
     return (
         <div>
              <SectionTitle heading='Popular Classes'></SectionTitle>
-            <div className='grid md:grid-cols-3 ml-28'>
+            <div className='grid md:grid-cols-3 ml-28 '>
                 {
                     allClasses.slice(0, 6).map(image => <PopularClassData
                         key={image._id}

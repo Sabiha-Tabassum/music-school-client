@@ -4,6 +4,8 @@ import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
 import AddByTeacher from '../../hooks/AddByTeacher/AddByTeacher';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import UseAdmin from '../../hooks/UseAdmin/UseAdmin';
+import UseInstructor from '../../hooks/UseInstructor/UseInstructor';
 
 
 
@@ -16,6 +18,8 @@ const ClassesData = ({allClass}) => {
     const navigate = useNavigate();
     const location = useLocation();
     
+    const [isAdmin] = UseAdmin();
+    const [isInstructor] = UseInstructor();
     
 
 
@@ -80,7 +84,8 @@ const ClassesData = ({allClass}) => {
                 <p className='font-semibold'>Available Seats: {seats}</p>
                 
             </div>
-            <button onClick={() =>  handleSelectClass(allClass)} className=''>Select</button>
+            {}
+            <button disabled={isAdmin?.admin || isInstructor?.instructor} onClick={() =>  handleSelectClass(allClass)} className=''>Select</button>
         </div>
     );
 };

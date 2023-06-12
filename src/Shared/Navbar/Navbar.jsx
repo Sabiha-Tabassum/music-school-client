@@ -21,7 +21,7 @@ const Navbar = () => {
                     to="/"
 
                     className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "text-indigo-400 hover:bg-indigo-200 font-semibold" : ""
+                        isPending ? "pending" : isActive ? "text-indigo-400 hover:bg-slate-200 font-semibold" : ""
                     }
                 >
                     Home
@@ -32,7 +32,7 @@ const Navbar = () => {
                 <NavLink
                     to="/instructor"
                     className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? " text-indigo-400 hover:bg-indigo-200 font-semibold" : ""
+                        isPending ? "pending" : isActive ? " text-indigo-400 hover:bg-slate-200 font-semibold" : ""
                     }
                 >
                     Instructors
@@ -43,7 +43,7 @@ const Navbar = () => {
             <NavLink
                 to="/classes"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-indigo-400 hover:bg-indigo-200 font-semibold" : ""
+                    isPending ? "pending" : isActive ? "text-indigo-400 hover:bg-slate-200 font-semibold" : ""
                 }
             >
                 Classes
@@ -79,7 +79,8 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost normal-case text-xl text-indigo-400">Life Tune</Link>
+                    <Link to='/' className="btn btn-ghost normal-case text-sm text-indigo-400">Life Tune <br  /> music academy</Link>
+                   
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

@@ -89,7 +89,7 @@ const CheckOutForm = ({price, className, instructorName, image, seats,  myClasse
              axiosSecure.post('/payment', payment)
              .then(res => {
                 // console.log(res.data);
-                if(res.data.result){
+                if(res.data.insertResult.insertId){
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',

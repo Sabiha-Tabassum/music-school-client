@@ -1,6 +1,7 @@
 import React from 'react';
 import AddByTeacher from '../../hooks/AddByTeacher/AddByTeacher';
 import ClassesData from './ClassesData';
+import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 
 
 
@@ -9,7 +10,9 @@ const Classes = () => {
     const allClasses = classes.filter(allClass => allClass.status === 'Approved');
     console.log(allClasses);
     return (
-        <div className='grid md:grid-cols-3 gap-2'>
+       <div>
+          <SectionTitle heading='All Approved Classes'></SectionTitle>
+           <div className='grid md:grid-cols-3 gap-2'>
             {
                allClasses.map(classes => <ClassesData 
                key={classes._id}
@@ -20,6 +23,7 @@ const Classes = () => {
 
            
         </div>
+       </div>
     );
 };
 

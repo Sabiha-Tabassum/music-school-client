@@ -22,7 +22,7 @@ const Footer = () => {
 
 
             </footer>
-            <footer className="footer p-10 bg-indigo-300 mb-5 w-1/2 ml-64 -mt-8 text-base-content">
+            <footer className="footer p-10 bg-indigo-300 md:mb-5 md:w-1/2 md:ml-64 -mt-8 text-base-content">
 
                 <div className=''>
                     <span className="footer-title">Services</span>
