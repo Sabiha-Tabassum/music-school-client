@@ -97,7 +97,7 @@ const UpdateClassByAdmin = () => {
             </Helmet>
             <h3 className='text-3xl font-semibold'>Total Class:  {classes.length}</h3>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto ">
                 <table className="table table-zebra w-full">
                     {/* head */}
                     <thead>
@@ -110,10 +110,10 @@ const UpdateClassByAdmin = () => {
                            
                             
                             <th>Price</th>
-                            <th>Available Seats</th>
+                            <th> Seats</th>
                             <th>Approve</th>
                             <th>Deny</th>
-                            <th>Send Feedback</th>
+                            <th>Feedback</th>
 
                         </tr>
                     </thead>
@@ -148,7 +148,7 @@ const UpdateClassByAdmin = () => {
                                     <button disabled={classes.status === 'Approved'} onClick={() => handleMakeDeny(classes)} className="btn btn-ghost btn-sm">Pending</button>}
                                 </td>
                                 <td>
-                                    { classes.status === 'Denied' ? <button onClick={() => handleDenyFeedback(classes)}  >This class is not opening yet</button> : '' || classes.status === 'Approved' ? <button onClick={() => handleApproveFeedback(classes)}  >This class is going on successfully</button> : ''}
+                                    { classes.status === 'Denied' ? <button onClick={() => handleDenyFeedback(classes)}  >Feedback</button> : '' || classes.status === 'Approved' ? <button onClick={() => handleApproveFeedback(classes)}  >Feedback</button> : ''}
                                 </td>
 
 

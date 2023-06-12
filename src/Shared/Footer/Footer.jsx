@@ -10,9 +10,9 @@ const Footer = () => {
                 <div className=''>
                     <div className='text-center'>
                         <img className='h-10 px-96 pt-2 mt-8 ml-32' src={logo} alt="" />
-                        <p ><small>Life Tune music academy</small><br /><small>Established in 2022</small></p>
+                        <p ><small>Life Tune music academy</small><br /><small>Established in 2023</small></p>
                         <p><small>Level-5,Postmount Street,USA</small></p>
-                        <p>Helpline: <a className="link link-hover">012345678</a></p>
+                        <p className='mt-1'>Helpline: <a className="link link-hover">012345678</a></p>
                     </div>
 
 
@@ -48,7 +48,10 @@ const Footer = () => {
 
 
             </footer>
-
+            <div className='text-center mb-4'>
+                    <p className='text-xs'>Copyright © 2023 - All right reserved by Life Tune music academy</p>
+            </div>
+           
 
         </>
     );
@@ -61,5 +64,5 @@ export default Footer;
 {/* todo icon */}
 // </div>
 // <div className='md:ml-96 mt-16'>
-// <p>Copyright © 2023 - All right reserved by </p>
+//
 // </div> */}

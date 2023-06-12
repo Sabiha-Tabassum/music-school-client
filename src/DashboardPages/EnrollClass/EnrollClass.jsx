@@ -2,6 +2,7 @@ import React from 'react';
 import MyEnrollClass from '../../hooks/MyEnrollClass/MyEnrollClass';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
+import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 
 const EnrollClass = () => {
 
@@ -12,7 +13,7 @@ const EnrollClass = () => {
        
     return (
         <div>
-
+            <SectionTitle heading='My Enrolled Class'></SectionTitle>
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}

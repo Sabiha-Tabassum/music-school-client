@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 
 
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_token;
@@ -25,7 +26,7 @@ const AddClass = () => {
             .then(imgResponse => {
                 if (imgResponse.success) {
                     const imgURL = imgResponse.data.display_url;
-                    const {  price, seats, class_name, status } = data;
+                    const { price, seats, class_name, status } = data;
                     const newClass = { name: user?.displayName, email: user?.email, price: parseFloat(price), seats: parseFloat(seats), class_name, status, image: imgURL }
                     fetch('http://localhost:5000/class', {
                         method: 'POST',
@@ -57,6 +58,7 @@ const AddClass = () => {
 
     return (
         <div>
+            <SectionTitle heading='Add Class Form'></SectionTitle>
             <form onSubmit={handleSubmit(onSubmit)} className='px-10'>
 
 
@@ -75,7 +77,7 @@ const AddClass = () => {
 
 
 
-                <div className='flex'>
+                <div className='flex gap-2'>
 
                     <div class="form-control w-full ">
                         <label class="label">
@@ -87,20 +89,22 @@ const AddClass = () => {
                             class="input input-bordered w-full " />
 
                     </div>
+
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text">Available Seats</span>
+
+                        </label>
+                        <input type="number" placeholder="Type here"
+                            {...register("seats", { required: true })}
+                            class="input input-bordered w-full " />
+
+
+                    </div>
                 </div>
 
 
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">Available Seats</span>
 
-                    </label>
-                    <input type="number" placeholder="Type here"
-                        {...register("seats", { required: true })}
-                        class="input input-bordered w-full " />
-
-
-                </div>
 
                 <div class="form-control w-full ">
                     <label class="label">
@@ -117,10 +121,10 @@ const AddClass = () => {
                     </label>
                     <input {...register("status", { required: true })} type="text" value="Pending" className="file-input file-input-bordered w-full " />
                 </div>
-                 
-                   <input  type="submit" className='btn btn-sm mt-2' value="Add Class" />
-                   
-                  
+
+                <input type="submit" className='btn btn-sm mt-2' value="Add Class" />
+
+
             </form>
         </div>
     );

@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
 import MyClassHook from '../../hooks/MyClassHook/MyClassHook';
 import Swal from 'sweetalert2';
+import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 
 
 const InstructorClass = () => {
@@ -53,7 +54,7 @@ const InstructorClass = () => {
     return(
         <div>
 
-              
+              <SectionTitle heading='My Classes'></SectionTitle>
              
                <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">

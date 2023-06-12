@@ -5,6 +5,7 @@ import MyClassHook from '../../hooks/MyClassHook/MyClassHook';
 import {  FaTrash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 
 const MyClass = () => {
    
@@ -45,7 +46,7 @@ const MyClass = () => {
 
     return (
         <div>
-            
+            <SectionTitle heading='My Selected class'></SectionTitle>
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}

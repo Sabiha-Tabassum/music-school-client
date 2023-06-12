@@ -8,14 +8,14 @@ import { AuthContext } from '../Providers/AuthProvider/AuthProvider';
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext);
+
     const [isAdmin] = UseAdmin();
     console.log(isAdmin);
 
     const [isInstructor] = UseInstructor();
     console.log(isInstructor);
 
-    // const isAdmin = true;
-    // const isInstructor = true;
+
 
 
     return (
@@ -37,7 +37,7 @@ const Dashboard = () => {
 
 
                         {
-                           isAdmin && <div>
+                            isAdmin && <div>
 
                                 <li><Link to='/dashboard/manageuser'>Manage User </Link></li>
 
@@ -49,7 +49,7 @@ const Dashboard = () => {
 
 
                         {
-                           isInstructor && <div>
+                            isInstructor &&  <div>
 
                                 <li><Link to='/dashboard/addclass'>Add Class </Link></li>
 
@@ -65,17 +65,21 @@ const Dashboard = () => {
                         }
 
 
+
+
                         
+                          
+                             <div>
 
-                        <div>
+                                <li><Link to='/dashboard/myclass'>My Selected Class </Link></li>
 
-                            <li><Link to='/dashboard/myclass'>My Selected Class </Link></li>
+                                <li><Link to='/dashboard/enrolledclass'>My Enrolled Class </Link></li>
 
-                            <li><Link to='/dashboard/enrolledclass'>My Enrolled Class </Link></li>
-
-                        </div>
+                            </div>
 
 
+
+                        
 
 
 
