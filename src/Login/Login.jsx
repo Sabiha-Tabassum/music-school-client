@@ -11,6 +11,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useState } from 'react';
 
 const Login = () => {
+    
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { signIn } = useContext(AuthContext);
     const [passwordEye, setPasswordEye] = useState(false);
@@ -30,8 +31,9 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(result.user);
+               
             })
-
+            
         Swal.fire({
             title: 'User Login successful',
             showClass: {

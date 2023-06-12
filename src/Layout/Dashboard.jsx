@@ -10,10 +10,10 @@ const Dashboard = () => {
     const { user } = useContext(AuthContext);
 
     const [isAdmin] = UseAdmin();
-    console.log(isAdmin);
+    console.log(isAdmin?.admin);
 
     const [isInstructor] = UseInstructor();
-    console.log(isInstructor);
+    console.log(isInstructor?.instructor);
 
 
 
@@ -37,7 +37,7 @@ const Dashboard = () => {
 
 
                         {
-                            isAdmin && <div>
+                            isAdmin?.admin && <div>
 
                                 <li><Link to='/dashboard/manageuser'>Manage User </Link></li>
 
@@ -49,7 +49,7 @@ const Dashboard = () => {
 
 
                         {
-                            isInstructor &&  <div>
+                            isInstructor?.instructor && <div>
 
                                 <li><Link to='/dashboard/addclass'>Add Class </Link></li>
 
@@ -67,19 +67,22 @@ const Dashboard = () => {
 
 
 
-                        
-                          
-                             <div>
+                        {
+                            !isAdmin?.admin && !isInstructor?.instructor &&
+                            <div>
 
                                 <li><Link to='/dashboard/myclass'>My Selected Class </Link></li>
 
                                 <li><Link to='/dashboard/enrolledclass'>My Enrolled Class </Link></li>
 
                             </div>
+                        }
 
 
 
-                        
+
+
+
 
 
 
