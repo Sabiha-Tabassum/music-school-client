@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import image1 from '../../images/soulmusic.jpg';
 import image2 from '../../images/lifetune.jpg';
 import image3 from '../../images/music-banner.jpg';
 import { motion } from "framer-motion"
 
 
+
+
 const Slider = () => {
+   
+    
     return (
         <div className="carousel w-full">
             <div id="slide1" className="carousel-item relative w-full h-96">
@@ -14,12 +18,12 @@ const Slider = () => {
                     <a href="#slide4" className="btn btn-circle">❮</a>
                     <a href="#slide2" className="btn btn-circle">❯</a>
                 </div>
-                <motion.div animate ={{y: 20 }} transition={{delay: 0, duration: 4}} className='absolute text-black mt-10 mx-40 ml-96'>
+                <div className='absolute text-black mt-10 mx-40 ml-96'>
                      <p>“Music is a language that doesn't speak in particular words. It speaks in emotions, and if it's in the bones, it’s in the bones.” - Keith Richards </p>
-                </motion.div>
+                </div>
             </div>
             <div id="slide2" className="carousel-item relative w-full h-96">
-                <img src={image2} className="w-full " />
+                <img src={image2} className="w-full h-96" />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                     <a href="#slide1" className="btn btn-circle">❮</a>
                     <a href="#slide3" className="btn btn-circle">❯</a>

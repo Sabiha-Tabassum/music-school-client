@@ -5,7 +5,7 @@ const InstructorAllData = ({ instructor }) => {
     return (
         <div className="card w-80 h-96 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
-                <img  src={imgURL} alt="Shoes" className="rounded-xl h-full" />
+                <img  src={imgURL} alt="Instructor" className="rounded-xl h-full" />
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{name}</h2>

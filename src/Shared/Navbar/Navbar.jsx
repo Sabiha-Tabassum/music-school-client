@@ -96,7 +96,7 @@ const Navbar = () => {
                             <button onClick={handleLogOut} className='btn border-b-indigo-600 bg-indigo-200 '>Log Out</button>
                         </> :
                             <>
-                                <button className='btn border-b-indigo-600 bg-indigo-200'><Link to="/login">Login</Link></button>
+                                <button className='btn border-b-indigo-600 bg-indigo-200 text-indigo-500'><Link to="/login">Login</Link></button>
                             </>
                     }
                 </div>

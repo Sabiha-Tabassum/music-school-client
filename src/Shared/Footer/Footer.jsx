@@ -6,7 +6,7 @@ const Footer = () => {
         <>
 
 
-            <footer className='bg-indigo-100 pb-14'>
+            <footer className='bg-indigo-100 pb-14 mt-28'>
                 <div className=''>
                     <div className='text-center'>
                         <img className='h-10 px-96 pt-2 mt-8 ml-32' src={logo} alt="" />
@@ -58,6 +58,13 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+
+
+
+
+
 
 {/* <div className='md:ml-96 md:pl-40 mt-4'>
 <h4 className=''>Stay in touch</h4>

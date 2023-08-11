@@ -14,7 +14,7 @@ const PopularTeacher = () => {
     return (
         <Container>
             <SectionTitle heading='Popular Instructors'></SectionTitle>
-            <div className='grid md:grid-cols-3 '>
+            <div className='grid md:grid-cols-3 gap-1'>
                 {role.slice(0,6).map(img => <PopularTeacherImg
                     key={img._id}
                     img={img}></PopularTeacherImg>)}

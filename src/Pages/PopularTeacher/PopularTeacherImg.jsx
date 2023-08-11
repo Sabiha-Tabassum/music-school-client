@@ -3,10 +3,14 @@ import React from 'react';
 const PopularTeacherImg = ({img}) => {
     const{imgURL} = img;
     return (
-        <div style={{height: '400px'}} className=''>
-            <img className='' src={imgURL} alt="" />
+        <div  className=''>
+            <img className='object-cover w-full h-96 rounded-2xl' src={imgURL} alt="Instructor" />
         </div>
     );
 };
 
 export default PopularTeacherImg;
+
+
+
+// style={{height: '400px'}}
