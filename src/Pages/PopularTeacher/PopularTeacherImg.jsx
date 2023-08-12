@@ -6,7 +6,7 @@ const PopularTeacherImg = ({img}) => {
         <div  className='relative transition duration-400 transform hover:-translate-y-1'>
             <img className='object-cover w-full h-96 rounded-2xl' src={imgURL} alt="Instructor" />
 
-            <div className='bg-emerald-950 bg-opacity-80 opacity-0 hover:opacity-100 inset-0 absolute text-white font-bold '>
+            <div className='bg-sky-950 bg-opacity-80 opacity-0 hover:opacity-100 inset-0 absolute text-white font-bold '>
                 <p className='my-48 mx-32'>{name}</p>
             </div>
         </div>
