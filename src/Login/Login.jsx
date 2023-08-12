@@ -68,7 +68,7 @@ const Login = () => {
                         </div>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body py-0 mt-2 mx-2 h-52">
 
 
 
@@ -104,7 +104,7 @@ const Login = () => {
                                 <input className="btn hover:bg-indigo-400" type="submit" value='Login' />
                             </div>
                         </form>
-                        <p className='mx-8 font-semibold mb-4'>Don't have an Account<Link className='ml-2 text-indigo-500 hover:bg-indigo-300 p-2 rounded-lg ' to="/signup">Sign Up</Link></p>
+                        <p className='mx-8 font-semibold  mt-8'>Don't have an Account<Link className='ml-2 text-indigo-500 hover:bg-indigo-300 p-2 rounded-lg ' to="/signup">Sign Up</Link></p>
                         <SocialLogin></SocialLogin>
 
                     </div>

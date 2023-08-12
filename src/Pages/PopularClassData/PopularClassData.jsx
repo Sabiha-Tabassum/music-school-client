@@ -10,7 +10,7 @@ const PopularClassData = ({ popularClass }) => {
 
             <img className='h-40 rounded-lg mt-1 object-cover' src={image} alt="" />
 
-            <div className='bg-black bg-opacity-80 opacity-0 hover:opacity-100 text-white absolute inset-0 w-60'>
+            <div className='bg-red-950 bg-opacity-80 opacity-0 hover:opacity-100 text-white absolute inset-0 w-60'>
                 <div className='my-4 mx-4'>
                     <p>{class_name}</p>
                     <br />

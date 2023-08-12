@@ -41,7 +41,7 @@ const SocialLogin = () => {
     return (
         <div>
             <div className="divider"></div>
-            <div className='w-full text-center my-4'>
+            <div className='w-full text-center mb-8'>
                 <button  onClick={handleGoogleSignIn}  className="btn hover:bg-indigo-400">
                     <FaGoogle className='text-indigo-800'></FaGoogle><span className='text-indigo-800'>Continue with Google</span>
                 </button>

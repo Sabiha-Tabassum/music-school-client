@@ -8,7 +8,7 @@ const Footer = () => {
 
             <footer className='bg-indigo-100 pb-14 mt-28'>
                 <div className=''>
-                    <div className='text-center'>
+                    <div className='md:text-center ml-10 md:ml-0'>
                         <img className='h-10 px-96 pt-2 mt-8 ml-32' src={logo} alt="" />
                         <p ><small>Life Tune music academy</small><br /><small>Established in 2023</small></p>
                         <p><small>Level-5,Postmount Street,USA</small></p>

@@ -106,7 +106,7 @@ const SignUp = () => {
                     </div>
                 </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body py-0 mt-0 mb-4 h-full">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
@@ -117,7 +117,7 @@ const SignUp = () => {
 
                            
                             <div className="form-control">
-                                <label className="label">
+                                <label className="label mt-0">
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="text" {...register("email", { required: true })} name='email' placeholder="email" className="input input-bordered" />
@@ -126,7 +126,7 @@ const SignUp = () => {
 
 
                              <div className="form-control">
-                                <label className="label">
+                                <label className="label mt-0">
                                     <span className="label-text">PhotoUrl</span>
                                 </label>
                                 <input type="file" {...register("image", { required: true })}  placeholder="photoURL" className="input input-bordered" />
@@ -135,7 +135,7 @@ const SignUp = () => {
                              
 
                             <div className="form-control">
-                                <label className="label">
+                                <label className="label mt-0">
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" {...register("password", {
@@ -147,14 +147,12 @@ const SignUp = () => {
                                 {errors.password?.type === 'minLength' && <span className='text-red-600'>Password must be 6 characters</span>}
                                 {errors.password?.type === 'maxLength' && <span className='text-red-600'>Password must be less than 20 characters</span>}
                                 {errors.password?.type === 'pattern' && <span className='text-red-600'>Password must have one uppercase, one lower case, one number & one special character</span>}
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
+                               
 
                             </div>
 
                             <div className="form-control">
-                                <label className="label">
+                                <label className="label mt-0">
                                     <span className="label-text">Confirm Password</span>
                                 </label>
                                 <input type="password" {...register("confirm_password", { required: true, validate: (value) =>  {
@@ -169,11 +167,11 @@ const SignUp = () => {
                                 
                             </div>
 
-                            <div className="form-control mt-6">
+                            <div className="form-control mt-2 mb-0">
                                 <input className="btn hover:bg-indigo-400" type="submit" value='Sign Up' />
                             </div>
                         </form>
-                        <p className='mx-8 font-semibold mb-4'>Already have an Account<Link className='ml-2 text-indigo-500 hover:bg-indigo-300 p-2 rounded-lg' to="/login">Login</Link></p>
+                        <p className='mx-8 font-semibold mb-0'>Already have an Account<Link className='ml-2 text-indigo-500 hover:bg-indigo-300 p-2 rounded-lg' to="/login">Login</Link></p>
                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
