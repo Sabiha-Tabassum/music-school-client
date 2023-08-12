@@ -1,13 +1,20 @@
 import React from 'react';
 import logo from '../../images/logo.jpg';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const Footer = () => {
+    useEffect(()=>{
+        AOS.init({duration:2000})
+    },[])
+
     return (
         <>
 
 
-            <footer className='bg-indigo-100 pb-14 mt-28'>
-                <div className=''>
+            <footer className='bg-indigo-100 pb-14 mt-28' data-aos="fade-down">
+                <div>
                     <div className='md:text-center ml-10 md:ml-0'>
                         <img className='h-10 px-96 pt-2 mt-8 ml-32' src={logo} alt="" />
                         <p ><small>Life Tune music academy</small><br /><small>Established in 2023</small></p>
@@ -24,21 +31,21 @@ const Footer = () => {
             </footer>
             <footer className="footer p-10 bg-indigo-300 md:mb-5 md:w-1/2 md:ml-64 -mt-8 text-base-content">
 
-                <div className=''>
+                <div data-aos="fade-up">
                     <span className="footer-title">Services</span>
                     <a className="link link-hover">Branding</a>
                     <a className="link link-hover">Design</a>
                     <a className="link link-hover">Marketing</a>
                     <a className="link link-hover">Advertisement</a>
                 </div>
-                <div>
+                <div data-aos="fade-down">
                     <span className="footer-title">Company</span>
                     <a className="link link-hover">About us</a>
                     <a className="link link-hover">Contact</a>
                     <a className="link link-hover">Jobs</a>
                     <a className="link link-hover">Press kit</a>
                 </div>
-                <div>
+                <div data-aos="fade-up">
                     <span className="footer-title">Legal</span>
                     <a className="link link-hover">Terms of use</a>
                     <a className="link link-hover">Privacy policy</a>
