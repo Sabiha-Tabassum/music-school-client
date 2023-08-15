@@ -8,5 +8,4 @@
 * Important Resources Link:
 * React Router https://reactrouter.com/en/main
 * React Icon https://react-icons.github.io/react-icons/
-* React Framer Motion https://www.npmjs.com/package/framer-motion 
-(react framer motion used in about component)
+* React Framer AOS https://michalsnik.github.io/aos/
